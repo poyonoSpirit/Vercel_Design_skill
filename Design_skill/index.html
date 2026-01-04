@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Design Philosophy | Poyon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-text fade">
+      <h1>Design Philosophy</h1>
+      <p>
+        私は「動くもの」よりも<br>
+        <strong>「壊れにくく、引き継げる構造」</strong>を設計します。
+      </p>
+    </div>
+  </section>
+
+  <section class="block fade">
+    <p class="lead">
+      短期的な実装速度より、<br>
+      運用・引き継ぎ・事故耐性を<br>
+      優先する設計が得意です。
+    </p>
+  </section>
+
+  <section class="block fade">
+    <h2>よくある現場の課題</h2>
+    <ul>
+      <li>ドキュメントがあっても使われない</li>
+      <li>属人化して誰も全体を説明できない</li>
+      <li>OJTが進まない</li>
+      <li>自動化が怖くて触れない</li>
+    </ul>
+  </section>
+
+  <section class="block fade">
+    <h2>私の設計はこう変えます</h2>
+    <ul>
+      <li>判断基準を構造に埋め込む</li>
+      <li>読まなくても理解できる配置</li>
+      <li>「人が迷うポイント」を先に潰す</li>
+    </ul>
+  </section>
+
+  <section class="block fade">
+    <h2>設計の進め方</h2>
+    <ol>
+      <li>人が迷うポイントを洗い出す</li>
+      <li>例外処理を「逃げ道」として用意する</li>
+      <li>事故らない選択肢を残す</li>
+      <li>変える場所と変えない場所を分ける</li>
+    </ol>
+  </section>
+
+  <section class="block fade">
+    <h3>設計で常に意識していること</h3>
+    <ul>
+      <li>完璧な正解は作らない</li>
+      <li>失敗しても壊れない構造</li>
+      <li>人の認知負荷を下げる</li>
+    </ul>
+  </section>
+
+  <section class="block fade">
+    <h2>設計対象</h2>
+    <ul>
+      <li>運用フロー設計（NOC / 監視 / 障害対応）</li>
+      <li>ドキュメント構造設計（Wiki / Notion）</li>
+      <li>自動化設計（小さく・壊れにくく）</li>
+      <li>学習 / OJT 設計</li>
+      <li>PoC設計（本番に持ち込まない前提）</li>
+    </ul>
+  </section>
+
+  <section class="block fade">
+    <h2>設計事例（一部）</h2>
+
+    <h3>監視業務OJT設計</h3>
+    <p>
+      アラームが鳴らなくても進められる構造。<br>
+      「机上止まり」を前提に、<br>
+      判断分岐を整理しました。
+    </p>
+
+    <h3>AI活用PoC設計</h3>
+    <p>
+      本番に影響しない隔離設計。<br>
+      人間が最終判断する前提で構築しています。
+    </p>
+  </section>
+
+  <section class="block fade">
+    <h2>向いている仕事</h2>
+    <ul>
+      <li>現場が混乱している</li>
+      <li>引き継ぎがうまくいっていない</li>
+      <li>「なんとなく回っている」状態を改善したい</li>
+      <li>自動化・AIを導入したいが怖い</li>
+    </ul>
+  </section>
+
+  <section class="block fade">
+    <h2>向いていない仕事</h2>
+    <ul>
+      <li>とにかく早くコードを書いてほしいだけ</li>
+      <li>設計をすっ飛ばしたい</li>
+    </ul>
+  </section>
+
+  <section class="end fade">
+    <p>
+      設計は「未来の人への手紙」だと考えています。
+    </p>
+    <p>
+      半年後・一年後の誰かが<br>
+      困らない構造を作ること。
+    </p>
+    <p class="strong">
+      それが私の設計です。
+    </p>
+  </section>
+
+<script>
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+  fades.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  color: rgba(255,255,255,0.95);
+  background: url("bg.png") center / cover fixed no-repeat;
+  line-height: 1.8;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.hero p {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.block, .end {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 20px;
+}
+
+h2, h3 {
+  margin-bottom: 1.2rem;
+}
+
+ul, ol {
+  margin-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+.lead {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.end {
+  text-align: center;
+  padding-bottom: 160px;
+}
+
+.end .strong {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
