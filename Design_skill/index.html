@@ -1,139 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>Design Philosophy | Poyon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ぽよんのサイト</title>
 
-  <section class="hero">
-    <div class="hero-text fade">
-      <h1>Design Philosophy</h1>
-      <p>
-        私は「動くもの」よりも<br>
-        <strong>「壊れにくく、引き継げる構造」</strong>を設計します。
-      </p>
+    <!-- Global base rules (reset / typography tokens) -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+
+    <!-- Page-specific styles (layout / components) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header / Global Nav -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Home">ぽよん</a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#feature" class="nav-link">特徴</a>
+          <a href="#showcase" class="nav-link">ギャラリー</a>
+          <a href="#contact" class="nav-link">連絡</a>
+        </nav>
+
+        <button class="nav-cta" type="button" data-modal-open="contact">
+          相談する
+        </button>
+      </div>
+    </header>
+
+    <main id="top" class="site-main" role="main">
+      <!-- Section: Hero -->
+      <section class="section hero" aria-label="Hero">
+        <div class="container">
+          <p class="eyebrow">NWと運用の現場を設計します</p>
+          <h1 class="hero-title">
+            設計で、運用を楽にするぽよん
+          </h1>
+          <p class="hero-sub">
+            セキュアNW / 次世代NOC / アプリ・自動化。現場の混沌を、構造に変換するぽよん。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#feature">強みを見る</a>
+            <button class="btn ghost" type="button" data-modal-open="about">
+              3行自己紹介
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Feature Stack (vertical scroll sections) -->
+      <section id="feature" class="section feature-stack" aria-label="Features">
+        <div class="container">
+          <h2 class="section-title">できること</h2>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>セキュアNW設計</h3>
+              <p>境界防御だけじゃない、運用まで含めた安全設計ぽよん。</p>
+              <a class="text-link" href="#contact">相談する →</a>
+            </article>
+
+            <article class="feature-card">
+              <h3>次世代セキュアNOC設計</h3>
+              <p>手順・監視・エスカレーションの“事故りにくい構造”を作るぽよん。</p>
+              <a class="text-link" href="#showcase">事例を見る →</a>
+            </article>
+
+            <article class="feature-card">
+              <h3>自動化・業務設計</h3>
+              <p>人間の負荷を下げるための、RPA/スクリプト前提の分解ぽよん。</p>
+              <button class="text-link" type="button" data-modal-open="automation">
+                詳細 →</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Horizontal Showcase -->
+      <section id="showcase" class="section horizontal-showcase" aria-label="Showcase">
+        <div class="container">
+          <h2 class="section-title">ショーケース</h2>
+          <p class="section-sub">
+            横スクロールで流れる、成果物・設計断片ぽよん。
+          </p>
+        </div>
+
+        <div class="h-scroll" data-horizontal-scroll>
+          <div class="h-track">
+            <article class="h-card">
+              <h3>OJT支援の設計</h3>
+              <p>わかりにくいWikiを、迷子にならない導線に変換ぽよん。</p>
+              <button type="button" class="btn small" data-modal-open="case-ojt">
+                詳細</button>
+            </article>
+
+            <article class="h-card">
+              <h3>運用改善PoC</h3>
+              <p>アラーム対応の属人性を減らす“型”を作るぽよん。</p>
+              <button type="button" class="btn small" data-modal-open="case-noc">
+                詳細</button>
+            </article>
+
+            <article class="h-card">
+              <h3>設計スキル販促</h3>
+              <p>Apple風UXで“伝わる”ポートフォリオにするぽよん。</p>
+              <a class="btn small" href="#contact">相談</a>
+            </article>
+
+            <article class="h-card">
+              <h3>世界の設計</h3>
+              <p>B面ゲート（世界観）へ、そっと誘導ぽよん。</p>
+              <button type="button" class="btn small" data-modal-open="bside">
+                開く</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: CTA / Contact -->
+      <section id="contact" class="section contact" aria-label="Contact">
+        <div class="container contact-inner">
+          <div>
+            <h2 class="section-title">相談・連絡</h2>
+            <p class="section-sub">
+              「この現場、設計で楽になる？」みたいな相談歓迎ぽよん。
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <button class="btn primary" type="button" data-modal-open="contact">
+              相談フォーム（仮）
+            </button>
+            <a class="btn ghost" href="#top">上に戻る</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <small>© ぽよん</small>
+        <nav aria-label="Footer">
+          <a href="#top">Top</a>
+          <a href="#feature">Features</a>
+          <a href="#showcase">Showcase</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Modal Root (modal.js will control this) -->
+    <div class="modal-overlay" data-modal-overlay hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Modal">
+        <button class="modal-close" type="button" data-modal-close aria-label="Close">
+          ×
+        </button>
+        <div class="modal-content" data-modal-content>
+          <!-- modal.js inserts content -->
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section class="block fade">
-    <p class="lead">
-      短期的な実装速度より、<br>
-      運用・引き継ぎ・事故耐性を<br>
-      優先する設計が得意です。
-    </p>
-  </section>
-
-  <section class="block fade">
-    <h2>よくある現場の課題</h2>
-    <ul>
-      <li>ドキュメントがあっても使われない</li>
-      <li>属人化して誰も全体を説明できない</li>
-      <li>OJTが進まない</li>
-      <li>自動化が怖くて触れない</li>
-    </ul>
-  </section>
-
-  <section class="block fade">
-    <h2>私の設計はこう変えます</h2>
-    <ul>
-      <li>判断基準を構造に埋め込む</li>
-      <li>読まなくても理解できる配置</li>
-      <li>「人が迷うポイント」を先に潰す</li>
-    </ul>
-  </section>
-
-  <section class="block fade">
-    <h2>設計の進め方</h2>
-    <ol>
-      <li>人が迷うポイントを洗い出す</li>
-      <li>例外処理を「逃げ道」として用意する</li>
-      <li>事故らない選択肢を残す</li>
-      <li>変える場所と変えない場所を分ける</li>
-    </ol>
-  </section>
-
-  <section class="block fade">
-    <h3>設計で常に意識していること</h3>
-    <ul>
-      <li>完璧な正解は作らない</li>
-      <li>失敗しても壊れない構造</li>
-      <li>人の認知負荷を下げる</li>
-    </ul>
-  </section>
-
-  <section class="block fade">
-    <h2>設計対象</h2>
-    <ul>
-      <li>運用フロー設計（NOC / 監視 / 障害対応）</li>
-      <li>ドキュメント構造設計（Wiki / Notion）</li>
-      <li>自動化設計（小さく・壊れにくく）</li>
-      <li>学習 / OJT 設計</li>
-      <li>PoC設計（本番に持ち込まない前提）</li>
-    </ul>
-  </section>
-
-  <section class="block fade">
-    <h2>設計事例（一部）</h2>
-
-    <h3>監視業務OJT設計</h3>
-    <p>
-      アラームが鳴らなくても進められる構造。<br>
-      「机上止まり」を前提に、<br>
-      判断分岐を整理しました。
-    </p>
-
-    <h3>AI活用PoC設計</h3>
-    <p>
-      本番に影響しない隔離設計。<br>
-      人間が最終判断する前提で構築しています。
-    </p>
-  </section>
-
-  <section class="block fade">
-    <h2>向いている仕事</h2>
-    <ul>
-      <li>現場が混乱している</li>
-      <li>引き継ぎがうまくいっていない</li>
-      <li>「なんとなく回っている」状態を改善したい</li>
-      <li>自動化・AIを導入したいが怖い</li>
-    </ul>
-  </section>
-
-  <section class="block fade">
-    <h2>向いていない仕事</h2>
-    <ul>
-      <li>とにかく早くコードを書いてほしいだけ</li>
-      <li>設計をすっ飛ばしたい</li>
-    </ul>
-  </section>
-
-  <section class="end fade">
-    <p>
-      設計は「未来の人への手紙」だと考えています。
-    </p>
-    <p>
-      半年後・一年後の誰かが<br>
-      困らない構造を作ること。
-    </p>
-    <p class="strong">
-      それが私の設計です。
-    </p>
-  </section>
-
-<script>
-  const fades = document.querySelectorAll('.fade');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-  fades.forEach(el => observer.observe(el));
-</script>
-
-</body>
+    <!-- Behaviors -->
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/scroll.js" defer></script>
+    <script src="assets/js/modal.js" defer></script>
+  </body>
 </html>
