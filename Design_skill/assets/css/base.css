@@ -1,144 +1,33 @@
-
 /* =========================
-   base.css
-   - reset
-   - typography
-   - layout base
-   - basic components
-   - modal base
+   グローバルナビ横スクロール機能
+   （挙動だけ・見た目は書かない）
 ========================= */
 
-/* --- Reset / Normalize --- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.global-nav {
+
+  display: flex;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  white-space: nowrap;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin; /* Firefox */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* 横スクロール用：アイテムを縮ませない */
+.global-nav a {
+  flex: 0 0 auto;
 }
 
-body {
-  line-height: 1.6;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #111;
-  background: #fff;
+/* スクロールスナップ（気持ちよく止まる） */
+.global-nav {
+  scroll-snap-type: x proximity;
 }
 
-/* --- Media --- */
-img, picture, video, canvas {
-  display: block;
-  max-width: 100%;
-}
-
-/* --- Typography --- */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 0.5em;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-p {
-  margin: 0 0 1em;
-}
-
-strong {
-  font-weight: 600;
-}
-
-em {
-  font-style: normal;
-}
-
-/* --- Links --- */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:focus-visible {
-  outline: 2px solid #999;
-  outline-offset: 2px;
-}
-
-/* --- Buttons --- */
-button {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-button:focus-visible {
-  outline: 2px solid #999;
-  outline-offset: 2px;
-}
-
-/* --- Layout Base --- */
-.section {
-  padding: 96px 0;
-}
-
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* --- Section Header / Footer --- */
-.section-header,
-.section-footer {
-  max-width: 720px;
-  margin-bottom: 48px;
-}
-
-.section-footer {
-  margin-top: 64px;
-}
-
-/* --- Lists --- */
-ul {
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-li {
-  margin-bottom: 0.4em;
-}
-
-/* --- Modal Base --- */
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: none;
-}
-
-.modal.is-open {
-  display: block;
-}
-
-.modal__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.modal__panel {
-  position: relative;
-  max-width: 640px;
-  margin: 10vh auto;
-  padding: 32px;
-  background: #fff;
-}
-
-/* --- Utility (minimal) --- */
-.hidden {
-  display: none !important;
+.global-nav a {
+  scroll-snap-align: start;
 }
