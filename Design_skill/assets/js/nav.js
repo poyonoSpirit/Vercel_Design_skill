@@ -28,13 +28,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // 🔧 ここに追加していけば増殖できるぽよん
     const sections = [
-      "contact",
+      "hero",
+      "vision",
+      "approach",
+      "skills",
       "about",
-      "noc-dx",
-      "network",
-      "cloud",
-      "game",
-      "physical-dx"
+      "future",
     ];
 
     for (const name of sections) {
@@ -49,11 +48,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const html = await res.text();
       
-      // ここで各セクションのHTMLにsectionタグを自動追記してくれるので、いちいちsection HTML側に紐付け情報をかかなくてOKぽよん✨
+      /*ここで各セクションのHTMLにsectionタグを自動追記してくれるので、いちいちsection HTML側に紐付け情報をかかなくてOKぽよん✨
+      visionセクションのときの例)
+      
+      <section id="vision" class="p-section">
+        <div class="inner">
+
+          <!-- ⭐️ここに sections/vision/vision.html の中身が入る -->
+
+        </div>
+      </section>
+      */
       const wrapper = document.createElement("section");
       wrapper.id = name;
+      wrapper.className = "p-section";
+
       wrapper.innerHTML = `
-        <div class="container">
+        <div class="inner">
           ${html}
         </div>
       `;

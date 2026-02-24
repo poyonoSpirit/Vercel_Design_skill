@@ -3,13 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ぽよんサイト</title>
+  <title>オフィシャルコマーシャルサイト( •⌄• ू )</title>
 
-  <!-- 土台（動き系） -->
-  <link rel="stylesheet" href="./assets/css/base.css" />
+  <!-- 一般CSS -->
+  <link rel="stylesheet" href="./assets/css/01-base.css" />
+  <link rel="stylesheet" href="./assets/css/02-layout.css" />
+  <link rel="stylesheet" href="./assets/css/04-sections-common.css" />   
+  <link rel="stylesheet" href="./assets/css/90-modal-common.css" />
 
-  <!-- 見た目専用 -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- 特殊CSS -->
+  <link rel="stylesheet" href="./assets/css/03-nav.css">
+  <link rel="stylesheet" href="./assets/css/10-hero.css" />
+  <link rel="stylesheet" href="./assets/css/11-vision.css" />
+  <link rel="stylesheet" href="./assets/css/12-approach.css" />
+  <link rel="stylesheet" href="./assets/css/13-evidence.css" />
+  <link rel="stylesheet" href="./assets/css/14-about.css" />
+  <link rel="stylesheet" href="./assets/css/15-future.css" />
+
 </head>
 
 <body>
@@ -18,11 +28,8 @@
   <header class="global-header">
     <div class="container">
 
-      <!-- ロゴやサイト名 -->
-      <a href="#top" class="brand">ぽよん</a>
-
-      <!-- nav.js がここに nav.html を差し込む -->
-      <div id="nav-slot"></div>
+      <!-- 目次ナビ差し込み -->
+      <nav id="nav-slot"></nav>
 
     </div>
   </header>
@@ -41,6 +48,7 @@
   <script src="./assets/js/nav.js" defer></script>
   <script src="./assets/js/scroll.js" defer></script>
   <script src="./assets/js/modal.js" defer></script>
+  <script src="./assets/js/toc.js" defer></script>
 
 
 </body>

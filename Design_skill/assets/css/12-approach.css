@@ -1,0 +1,304 @@
+/* =========================
+   approach
+========================= */
+
+#approach {
+  padding: 120px 0 110px;
+  background: #ffffff;
+}
+
+#approach .approach-inner {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== heading ===== */
+#approach .approach-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+#approach .approach-title {
+  font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0 0 18px;
+}
+
+#approach .approach-lead {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(0,0,0,0.72);
+  margin: 0 0 22px;
+}
+
+#approach .approach-en {
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.72);
+  margin: 0;
+}
+
+/* ===== cards layout ===== */
+#approach .approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+/* ===== card ===== */
+#approach .approach-card {
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid rgba(40, 40, 60, 0.14);
+  background: #ffffff;
+  min-height: 340px;
+
+  padding: 26px 22px 70px;
+  box-shadow: 0 10px 30px rgba(15, 20, 40, 0.06);
+
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+#approach .approach-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 20, 40, 0.10);
+  border-color: rgba(120, 90, 255, 0.28);
+}
+
+/* 画像みたいに、左のカードだけ淡い紫で選択状態 */
+#approach .approach-card.is-active {
+  background: rgba(160, 140, 255, 0.18);
+  border-color: rgba(120, 90, 255, 0.24);
+}
+
+/* ===== card text ===== */
+#approach .approach-card-title {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+}
+
+#approach .approach-card-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(0,0,0,0.70);
+  margin: 0;
+}
+
+/* ===== plus button ===== */
+#approach .approach-plus {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(120, 90, 255, 0.22);
+  background: rgba(160, 140, 255, 0.18);
+  color: rgba(60, 40, 180, 0.85);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+/* 非アクティブカードの＋は少し控えめ */
+#approach .approach-card:not(.is-active) .approach-plus {
+  background: rgba(120, 120, 140, 0.06);
+  border-color: rgba(40, 40, 60, 0.12);
+  color: rgba(0,0,0,0.45);
+}
+
+#approach .approach-plus:hover {
+  transform: scale(1.06);
+}
+
+/* plus icon（文字＋でもSVGでもOK） */
+#approach .approach-plus span {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 600;
+  transform: translateY(-1px);
+}
+
+/* ===== responsive ===== */
+@media (max-width: 980px) {
+  #approach .approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  #approach .approach-card {
+    min-height: 310px;
+  }
+}
+
+@media (max-width: 560px) {
+  #approach {
+    padding: 86px 0 80px;
+  }
+  #approach .approach-head {
+    margin-bottom: 34px;
+  }
+  #approach .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  #approach .approach-card {
+    padding: 22px 18px 64px;
+    min-height: auto;
+  }
+}
+
+
+
+/* =========================
+   modal (approach)
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px;
+}
+
+/* open state */
+.modal.is-open {
+  display: flex;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 16, 0.42);
+  backdrop-filter: blur(6px);
+}
+
+/* panel */
+.modal__panel {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: min(86vh, 900px);
+
+  background: #fff;
+  border: 1px solid rgba(40, 40, 60, 0.14);
+  border-radius: 22px;
+
+  box-shadow: 0 30px 80px rgba(15, 20, 40, 0.22);
+
+  overflow: hidden;
+
+  transform: translateY(10px);
+  opacity: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.modal.is-open .modal__panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* close button (round) */
+.modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(40, 40, 60, 0.10);
+  background: rgba(140, 140, 160, 0.12);
+  color: rgba(0,0,0,0.55);
+
+  font-size: 26px;
+  line-height: 1;
+
+  display: grid;
+  place-items: center;
+
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  background: rgba(160, 140, 255, 0.18);
+  border-color: rgba(120, 90, 255, 0.22);
+  color: rgba(50, 35, 170, 0.85);
+}
+
+/* scrolling content */
+.modal__content {
+  padding: 44px 56px 54px;
+  overflow: auto;
+  max-height: min(86vh, 900px);
+}
+
+.modal__title {
+  font-size: clamp(28px, 3vw, 40px);
+  margin: 0 0 28px;
+  letter-spacing: 0.02em;
+}
+
+.modal__section {
+  padding: 8px 0;
+}
+
+.modal__heading {
+  font-size: 18px;
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+}
+
+.modal__text {
+  font-size: 15px;
+  line-height: 2.0;
+  color: rgba(0,0,0,0.72);
+  margin: 0 0 10px;
+}
+
+.modal__divider {
+  border: none;
+  border-top: 1px solid rgba(40, 40, 60, 0.10);
+  margin: 26px 0;
+}
+
+.modal__list {
+  margin: 10px 0 14px 1.2em;
+  padding: 0;
+  color: rgba(0,0,0,0.78);
+  line-height: 2.0;
+  font-size: 15px;
+}
+
+@media (max-width: 560px) {
+  .modal__content {
+    padding: 28px 22px 32px;
+  }
+  .modal__close {
+    top: 12px;
+    right: 12px;
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
+  }
+}
+
+/* body scroll lock */
+body.is-modal-open {
+  overflow: hidden;
+}

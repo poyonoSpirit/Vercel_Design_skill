@@ -1,0 +1,118 @@
+<!-- RAG modal -->
+<div id="modal-rag" class="modal" aria-hidden="true">
+  <div class="modal__backdrop" data-close="1"></div>
+
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-label="RAG基盤設計">
+    <button class="modal__close" type="button" aria-label="閉じる" data-close="1">×</button>
+
+    <div class="modal__content">
+      <h2 class="modal__title">RAG基盤設計</h2>
+
+      <div class="modal__section">
+        <h3 class="modal__heading">なぜ必要か</h3>
+        <p class="modal__text">多くの現場では、社内Wikiや過去の対応履歴が十分に活用されていません。</p>
+        <p class="modal__text">情報は存在しているのに、検索できない、引き出せない、再利用できない。</p>
+        <p class="modal__text">その結果、判断は属人化し、アラーム対応は繰り返されます。</p>
+      </div>
+
+      <hr class="modal__divider" />
+
+      <div class="modal__section">
+        <h3 class="modal__heading">何を再設計するのか</h3>
+        <p class="modal__text">RAGは単なるAI導入ではありません。</p>
+        <ul class="modal__list">
+          <li>ナレッジの構造化</li>
+          <li>粒度の再設計</li>
+          <li>検索動線の最適化</li>
+          <li>権限設計とセキュリティ配慮</li>
+        </ul>
+        <p class="modal__text">これらを整理したうえで、初めてAIは有効に機能します。</p>
+      </div>
+
+      <hr class="modal__divider" />
+
+      <div class="modal__section">
+        <h3 class="modal__heading">設計思想</h3>
+        <p class="modal__text">AIを“入れる”のではなく、運用構造に“組み込む”。</p>
+        <p class="modal__text">人を強くするのではなく、判断を再利用可能にする。</p>
+      </div>
+
+      <hr class="modal__divider" />
+
+      <div class="modal__section">
+        <h3 class="modal__heading">現在の取り組み</h3>
+        <p class="modal__text">RAG基盤の設計思想を整理し、小規模PoCの構想段階にあります。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ここがホンちゃんセクション -->
+<section id="approach">
+  <div class="approach-cards">
+
+    <div class="card" data-modal="rag">
+      <h3>RAG基盤設計</h3>
+    </div>
+
+    <div class="card" data-modal="alarm">
+      <h3>アラーム粒度再設計</h3>
+    </div>
+
+    <div class="card" data-modal="alarm">
+      <h3>IaC導入設計</h3>
+    </div>
+
+    <div class="card" data-modal="alarm">
+      <h3>AWS構成最適化</h3>
+    </div>
+
+  </div>
+
+  <!-- モーダル群 -->
+  <div id="rag-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>RAG基盤設計</h2>
+      <p>社内Wikiが活用されていない。
+        アラーム対応が属人化している。
+
+        → RAGで知識を構造化します</p>
+    </div>
+  </div>
+
+  <div id="alarm-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>アラーム粒度再設計</h2>
+      <p>アラーム過多、属人判断、
+        本質でない対応に時間を奪われる。
+        通知の“粒度”を整え、
+        運用を静かにします。
+      </p>
+    </div>
+  </div>
+
+  <div id="alarm-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>IaC導入設計</h2>
+      <p>
+        アラームや社内Wikiの内容を整理してRAGを用いてAIに取り込みます
+      </p>
+    </div>
+  </div>
+
+  <div id="alarm-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>AWS構成最適化</h2>
+      <p>
+        主にAWSを用いたソリューションを提供します
+      </p>
+    </div>
+  </div>
+
+</section>

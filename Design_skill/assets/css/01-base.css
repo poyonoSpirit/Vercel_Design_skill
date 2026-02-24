@@ -3,7 +3,7 @@
    （挙動だけ・見た目は書かない）
 ========================= */
 
-.global-nav {
+.global-header {
 
   display: flex;
 
@@ -19,15 +19,15 @@
 }
 
 /* 横スクロール用：アイテムを縮ませない */
-.global-nav a {
+.global-header a {
   flex: 0 0 auto;
 }
 
 /* スクロールスナップ（気持ちよく止まる） */
-.global-nav {
+.global-header {
   scroll-snap-type: x proximity;
 }
 
-.global-nav a {
+.global-header a {
   scroll-snap-align: start;
 }

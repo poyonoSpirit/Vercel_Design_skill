@@ -1,0 +1,81 @@
+/* =============
+   vision
+================ */
+
+#vision {
+  min-height: 100vh;
+  background-image: url("../../sections/vision/vision-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  position: relative;
+}
+
+/* nav.js が自動で入れる container 対策 */
+#vision .container {
+  width: 100%;
+}
+
+/* 中身の横幅と余白 */
+#vision .vision-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* "Vision" 見出し（上の薄い文字） */
+#vision .vision-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(120, 120, 180, 0.45);
+  margin: 0 0 56px;
+}
+
+/* メインコピー（中央の黒文字） */
+#vision .vision-lead {
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.9;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 56px;
+}
+
+/* 箇条書き（点と余白を整える） */
+#vision .vision-list {
+  list-style: disc;
+  list-style-position: inside;
+
+  display: inline-block; /* 中央寄せのまま、リストを「塊」にする */
+  text-align: left;
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* 各行の間隔 */
+#vision .vision-list li {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 2.2;
+  color: #111;
+  margin: 14px 0;
+}
+
+/* スマホで詰まりすぎないように */
+@media (max-width: 480px) {
+  #vision .vision-title {
+    margin-bottom: 40px;
+  }
+  #vision .vision-lead {
+    margin-bottom: 40px;
+  }
+  #vision .vision-list li {
+    margin: 10px 0;
+  }
+}

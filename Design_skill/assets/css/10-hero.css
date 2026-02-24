@@ -1,0 +1,49 @@
+
+
+/* =============
+   hero
+================ */
+
+#hero {
+  height: 100vh;
+  background-image: url("../../sections/hero/poyon-cloud-desktop-2560x1440.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  position: relative;
+}
+
+/* nav.jsが自動で入れるcontainer対策 */
+#hero .container {
+  width: 100%;
+}
+
+#hero .hero-inner {
+  max-width: 900px;
+  padding: 0 24px;
+}
+
+#hero .hero-eyebrow {
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+#hero .hero-title {
+  font-size: 48px;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+#hero .hero-sub {
+  font-size: 18px;
+  line-height: 1.8;
+}

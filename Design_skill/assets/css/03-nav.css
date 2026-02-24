@@ -1,0 +1,92 @@
+
+/* =============
+　　ガラスナビ
+================ */
+
+/* 上部固定ガラス */
+.global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.6);
+
+  z-index: 1000;
+}
+
+/* nav配置 */
+.global-header nav {
+  display: flex;
+  gap: 40px;
+}
+
+/* 通常リンク */
+.global-header a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.5);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+/* 現在地 */
+.global-header a.active {
+  color: rgba(0,0,0,0.9);
+  position: relative;
+}
+
+/* 静かな下線 */
+.global-header a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #c9b6ff, #e8dcff);
+  border-radius: 2px;
+}
+
+/* 目次クリックでぬるっと移動 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* コンテンツがヘッダーに隠れないように */
+body {
+  padding-top: 60px;
+}
+
+
+
+
+/* =========================
+   Hover / Focus
+========================= */
+
+.global-nav a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.global-nav a:focus-visible {
+  outline: 3px solid rgba(150, 120, 220, 0.6);
+  outline-offset: 4px;
+}
+
+
+
+/* =========================
+   アクティブ（scroll.js用）
+========================= */
+
+.global-nav a.active {
+  background: #f4efff;
+  box-shadow: 0 8px 18px rgba(90, 55, 55, 0.15);
+}

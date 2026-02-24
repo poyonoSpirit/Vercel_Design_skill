@@ -1,0 +1,42 @@
+
+
+/* =========================
+   セクションのタイトルの見た目
+========================= */
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* =========================
+   セクションの本文の見た目
+========================= */
+
+.section-description {
+  font-size: 18px;
+  color: #666;
+}
+
+
+
+
+/* セクション基本設計ぽよん */
+.p-section {
+  padding: clamp(64px, 8vw, 120px) 0;
+}
+
+/* 中央寄せ幅制御（Apple感の核ぽよん） */
+.inner {
+  width: min(1080px, 92vw);
+  margin: 0 auto;
+}
+
+
+
+
+/* 境界をやさしく区切る */
+.p-section + .p-section {
+  border-top: 1px solid rgba(80, 50, 120, 0.08);
+}
