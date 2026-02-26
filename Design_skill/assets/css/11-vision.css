@@ -4,17 +4,29 @@
 
 #vision {
   min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* 背景レイヤー */
+#vision::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
   background-image: url("../../sections/vision/vision-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  position: relative;
+  opacity: 0.15;   /* ←ここで透明度調整ぽよん */
+  z-index: -1;
 }
 
 /* nav.js が自動で入れる container 対策 */

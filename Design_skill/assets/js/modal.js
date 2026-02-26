@@ -1,64 +1,71 @@
-// ドキュメント全体でクリックを監視（イベント委譲）
-document.addEventListener("click", async (e) => {
+(() => {
+  const OPEN_CLASS = "is-open";
+  const BODY_LOCK_CLASS = "is-modal-open";
 
-  // .modal-trigger が押されたかチェック
-  const trigger = e.target.closest(".modal-trigger");
-  if (!trigger) return; // 違ったら何もしない
+  console.log("[modal.js] loaded ✅");
 
-  // data-modal="contact" みたいな値を取得
-  const name = trigger.dataset.modal;
+  const getModalById = (id) => document.getElementById(id);
 
-  // 対応する modal HTML を読み込む
-  const res = await fetch(`./sections/${name}/${name}-modal.html`);
-  if (!res.ok) return;
+  const openModal = (modal) => {
+    if (!modal) return;
+    modal.classList.add(OPEN_CLASS);
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add(BODY_LOCK_CLASS);
+    console.log("[modal.js] open:", modal.id);
+  };
 
-  const html = await res.text();
+  const closeModal = (modal) => {
+    if (!modal) return;
+    modal.classList.remove(OPEN_CLASS);
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove(BODY_LOCK_CLASS);
+    console.log("[modal.js] close:", modal.id);
+  };
 
-  // モーダルの背景（黒い半透明レイヤー）を作成
-  const overlay = document.createElement("div");
-  overlay.className = "modal-overlay";
+  const toggleModal = (modal) => {
+    if (!modal) return;
+    const nowOpen = modal.classList.contains(OPEN_CLASS);
+    console.log("[modal.js] toggle ->", nowOpen ? "close" : "open", modal.id);
+    nowOpen ? closeModal(modal) : openModal(modal);
+  };
 
-  // モーダル本体を挿入
-  overlay.innerHTML = `
-    <div class="modal-box">
-      <button class="modal-close">×</button>
-      ${html}
-    </div>
-  `;
+  // クリック捕捉（最重要）
+  document.addEventListener("click", (e) => {
+    console.log("[modal.js] click target:", e.target);
 
-  // body に追加（画面に出す）
-  document.body.appendChild(overlay);
+    const trigger = e.target.closest("[data-modal-target]");
+    console.log("[modal.js] trigger:", trigger);
 
-  // モーダル開いたらスクロール禁止
-  document.body.classList.add("is-modal-open");
+    if (!trigger) return;
 
+    const id = trigger.getAttribute("data-modal-target");
+    console.log("[modal.js] data-modal-target:", id);
 
-  // 次フレームで .is-open を付与（アニメーション発火用）
-  requestAnimationFrame(() => {
-    overlay.classList.add("is-open");
-  });
+    const modal = getModalById(id);
+    console.log("[modal.js] modal element:", modal);
 
-  // クリックで閉じる処理
-  overlay.addEventListener("click", (ev) => {
-
-    // 背景 or ×ボタンを押したら閉じる
-    if (
-      ev.target.classList.contains("modal-overlay") ||
-      ev.target.classList.contains("modal-close")
-    ) {
-
-      overlay.classList.remove("is-open");
-
-      // アニメーション後に削除
-      setTimeout(() => overlay.remove(), 300);
+    if (!modal) {
+      console.warn("[modal.js] modal not found. id=", id);
+      return;
     }
 
-
-    overlay.classList.remove("is-open");
-    // スクロール再開
-    document.body.classList.remove("is-modal-open");
-    setTimeout(() => overlay.remove(), 300);
-
+    toggleModal(modal);
   });
 
+
+  // どこをクリックしても閉じる（モーダル内クリックで閉じる）
+document.addEventListener("click", (e) => {
+  const modal = e.target.closest(".poyon-modal");
+  if (!modal) return;
+  if (!modal.classList.contains("is-open")) return;
+
+  closeModal(modal);
 });
+
+  // Esc閉じる
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const modal = document.querySelector(`.poyon-modal.${OPEN_CLASS}`);
+    closeModal(modal);
+  });
+})();

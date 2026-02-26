@@ -1,118 +1,334 @@
-<!-- RAG modal -->
-<div id="modal-rag" class="modal" aria-hidden="true">
-  <div class="modal__backdrop" data-close="1"></div>
+<!-- AWS Modal (UI only) -->
+<section class="poyon-modal" id="modal-AWS" aria-label="AWS構成最適化" aria-hidden="true">
+  <div class="poyon-modal__panel">
+    <button class="poyon-modal__close" type="button" aria-label="閉じる">
+      ×
+    </button>
 
-  <div class="modal__panel" role="dialog" aria-modal="true" aria-label="RAG基盤設計">
-    <button class="modal__close" type="button" aria-label="閉じる" data-close="1">×</button>
+    <div class="poyon-modal__body">
+      <h2 class="poyon-modal__title">AWS構成最適化</h2>
 
-    <div class="modal__content">
-      <h2 class="modal__title">RAG基盤設計</h2>
-
-      <div class="modal__section">
-        <h3 class="modal__heading">なぜ必要か</h3>
-        <p class="modal__text">多くの現場では、社内Wikiや過去の対応履歴が十分に活用されていません。</p>
-        <p class="modal__text">情報は存在しているのに、検索できない、引き出せない、再利用できない。</p>
-        <p class="modal__text">その結果、判断は属人化し、アラーム対応は繰り返されます。</p>
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">背景</h3>
+        <p class="poyon-modal__text">AWSは便利ですが、</p>
+        <p class="poyon-modal__text">放置するとコストと複雑性が増大します。</p>
+        <ul class="poyon-modal__list">
+          <li>不要なインスタンス</li>
+          <li>過剰なスペック</li>
+          <li>可用性設計の不足</li>
+        </ul>
+        <p class="poyon-modal__text">この状態では、疲労が蓄積し、判断精度が落ちます。</p>
       </div>
 
-      <hr class="modal__divider" />
+      <hr class="poyon-modal__divider" />
 
-      <div class="modal__section">
-        <h3 class="modal__heading">何を再設計するのか</h3>
-        <p class="modal__text">RAGは単なるAI導入ではありません。</p>
-        <ul class="modal__list">
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">設計思想</h3>
+        <p class="poyon-modal__text">クラウドは</p>
+        <p class="poyon-modal__text__strong">スケールとコストの設計問題。<br></p>
+        <p class="poyon-modal__text">過不足のない構成を</p>
+        <p class="poyon-modal__text">目的から逆算して設計します。</p>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">実装アプローチ</h3>
+        <ul class="poyon-modal__list">
+          <li>リソース利用状況の可視化</li>
+          <li>Auto Scaling設計</li>
+          <li>マネージドサービス活用</li>
+          <li>コスト最適化（RI / Savings Plan検討）</li>
+          <li>冗長構成設計</li>
+        </ul>
+      </div>      
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">期待される状態</h3>
+        <ul class="poyon-modal__list">
+          <li>月額コスト最適化</li>
+          <li>障害耐性向上</li>
+          <li>将来拡張しやすい構造</li>
+          <li>設計思想が説明できる環境</li>
+        </ul>
+        <p class="poyon-modal__text">クラウドを</p>
+        <p class="poyon-modal__text">「なんとなく使う」から</p>
+        <p class="poyon-modal__text">「意図して設計する」へ。</p>
+      </div>  
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- IaC Modal (UI only) -->
+<section class="poyon-modal" id="modal-IaC" aria-label="IaC導入設計" aria-hidden="true">
+  <div class="poyon-modal__panel">
+    <button class="poyon-modal__close" type="button" aria-label="閉じる">
+      ×
+    </button>
+
+    <div class="poyon-modal__body">
+      <h2 class="poyon-modal__title">IaC導入設計</h2>
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">背景</h3>
+        <p class="poyon-modal__text">手作業構築は再現性が低く、</p>
+        <p class="poyon-modal__text">人が変わると品質が変わります。</p>
+        <ul class="poyon-modal__list">
+          <li>構成差分が見えない</li>
+          <li>変更履歴が追えない</li>
+          <li>属人化する</li>
+        </ul>
+        <p class="poyon-modal__text">この状態では、疲労が蓄積し、判断精度が落ちます。</p>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">設計思想</h3>
+        <p class="poyon-modal__text">インフラは「作業」ではなく</p>
+        <p class="poyon-modal__text__strong">バージョン管理される設計資産。</p>
+        <p class="poyon-modal__text">Infrastructure as Code によって</p>
+        <p class="poyon-modal__text">構成をコード化し、差分を可視化します。</p>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">実装アプローチ</h3>
+        <ul class="poyon-modal__list">
+          <li>Terraform / CloudFormation 等の導入</li>
+          <li>構成テンプレート化</li>
+          <li>Git管理</li>
+          <li>環境ごとの変数分離</li>
+        </ul>
+      </div>      
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">期待される状態</h3>
+        <ul class="poyon-modal__list">
+          <li>構築時間短縮</li>
+          <li>環境再現性向上</li>
+          <li>レビュー可能なインフラ</li>
+          <li>ヒューマンエラー削減</li>
+        </ul>
+        <p class="poyon-modal__text">インフラを「職人芸」から</p>
+        <p class="poyon-modal__text">「構造設計」へ。</p>
+      </div>  
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Alarm Modal (UI only) -->
+<section class="poyon-modal" id="modal-alarm" aria-label="アラーム粒度再設計" aria-hidden="true">
+  <div class="poyon-modal__panel">
+    <button class="poyon-modal__close" type="button" aria-label="閉じる">
+      ×
+    </button>
+
+    <div class="poyon-modal__body">
+      <h2 class="poyon-modal__title">アラーム粒度再設計</h2>
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">背景</h3>
+        <p class="poyon-modal__text">アラームが多すぎる環境では、</p>
+        <p class="poyon-modal__text">「本当に危険なアラーム」が埋もれます。</p>
+        <ul class="poyon-modal__list">
+          <li>閾値が現場感覚に依存</li>
+          <li>一時対応が個人の経験に依存</li>
+          <li>同一事象で多重通知</li>
+        </ul>
+        <p class="poyon-modal__text">この状態では、疲労が蓄積し、判断精度が落ちます。</p>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">設計思想</h3>
+        <p class="poyon-modal__text">アラームは「量」ではなく</p>
+        <p class="poyon-modal__text">判断可能な粒度で設計するべきもの。</p>
+        <ul class="poyon-modal__list">
+          <li>検知目的の再定義</li>
+          <li>通知レベルの階層化（Info / Warning / Critical）</li>
+          <li>抑止条件の整理</li>
+          <li>ノイズ除去ルールの明文化</li>
+        </ul>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">実装アプローチ</h3>
+        <ol class="poyon-modal__list">
+          <li>現行アラームの棚卸し</li>
+          <li>重複・不要アラームの分類</li>
+          <li>閾値の論理的再設計</li>
+          <li>判断フローの標準化</li>
+        </ol>
+      </div>      
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">期待される状態</h3>
+        <ul class="poyon-modal__list">
+          <li>アラーム件数減少</li>
+          <li>判断時間短縮</li>
+          <li>新人でも同じ基準で判断可能</li>
+          <li>精神的負荷の低減</li>
+        </ul>
+        <p class="poyon-modal__text"><br>「静かなNOC」をつくります。</p>
+      </div>  
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- RAG Modal (UI only) -->
+<section class="poyon-modal" id="modal-rag" aria-label="RAG基盤設計" aria-hidden="true">
+  <div class="poyon-modal__panel">
+    <button class="poyon-modal__close" type="button" aria-label="閉じる">
+      ×
+    </button>
+
+    <div class="poyon-modal__body">
+      <h2 class="poyon-modal__title">RAG基盤設計</h2>
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">なぜ必要か</h3>
+        <p class="poyon-modal__text">多くの現場では、</p>
+        <p class="poyon-modal__text">社内Wikiや過去の対応履歴が十分に活用されていません。</p>
+        <p class="poyon-modal__text">情報は存在しているのに、</p>
+        <p class="poyon-modal__text">検索できない、引き出せない、再利用できない。</p>
+        <p class="poyon-modal__text">その結果、判断は属人化し、</p>
+        <p class="poyon-modal__text">アラーム対応は繰り返されます</p>
+      </div>
+
+      <hr class="poyon-modal__divider" />
+
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">何を再設計するのか</h3>
+        <p class="poyon-modal__text">RAGは単なるAI導入ではありません。</p>
+
+        <ul class="poyon-modal__list">
           <li>ナレッジの構造化</li>
           <li>粒度の再設計</li>
           <li>検索動線の最適化</li>
           <li>権限設計とセキュリティ配慮</li>
         </ul>
-        <p class="modal__text">これらを整理したうえで、初めてAIは有効に機能します。</p>
+
+        <p class="poyon-modal__text">これらを整理したうえで、</p>
+        <p class="poyon-modal__text">初めてAIは有効に機能します。</p>
       </div>
 
-      <hr class="modal__divider" />
+      <hr class="poyon-modal__divider" />
 
-      <div class="modal__section">
-        <h3 class="modal__heading">設計思想</h3>
-        <p class="modal__text">AIを“入れる”のではなく、運用構造に“組み込む”。</p>
-        <p class="modal__text">人を強くするのではなく、判断を再利用可能にする。</p>
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">設計思想</h3>
+        <p class="poyon-modal__text">AIを“入れる”のではなく、</p>
+        <p class="poyon-modal__text">運用構造に“組み込む”。</p>
+        <p class="poyon-modal__text">人を強くするのではなく、</p>
+        <p class="poyon-modal__text">判断を再利用可能にする。</p>
       </div>
 
-      <hr class="modal__divider" />
+      <hr class="poyon-modal__divider" />
 
-      <div class="modal__section">
-        <h3 class="modal__heading">現在の取り組み</h3>
-        <p class="modal__text">RAG基盤の設計思想を整理し、小規模PoCの構想段階にあります。</p>
+      <div class="poyon-modal__section">
+        <h3 class="poyon-modal__heading">現在の取り組み</h3>
+        <p class="poyon-modal__text">RAG基盤の設計思想を整理し、</p>
+        <p class="poyon-modal__text">小規模PoCの構想段階にあります。</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
-
-<!-- ここがホンちゃんセクション -->
+<!-- ⭐️ここがセクションのベース -->
 <section id="approach">
-  <div class="approach-cards">
+  <div class="approach-inner">
 
-    <div class="card" data-modal="rag">
-      <h3>RAG基盤設計</h3>
-    </div>
-
-    <div class="card" data-modal="alarm">
-      <h3>アラーム粒度再設計</h3>
-    </div>
-
-    <div class="card" data-modal="alarm">
-      <h3>IaC導入設計</h3>
-    </div>
-
-    <div class="card" data-modal="alarm">
-      <h3>AWS構成最適化</h3>
-    </div>
-
-  </div>
-
-  <!-- モーダル群 -->
-  <div id="rag-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>RAG基盤設計</h2>
-      <p>社内Wikiが活用されていない。
-        アラーム対応が属人化している。
-
-        → RAGで知識を構造化します</p>
-    </div>
-  </div>
-
-  <div id="alarm-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>アラーム粒度再設計</h2>
-      <p>アラーム過多、属人判断、
-        本質でない対応に時間を奪われる。
-        通知の“粒度”を整え、
-        運用を静かにします。
+    <header class="approach-head">
+      <h2 class="approach-title">実装アプローチ</h2>
+      <p class="approach-lead">
+        アラーム過多、属人化、情報迷子。<br>
+        その疲労を、構造から整えます。
       </p>
-    </div>
-  </div>
+      <p class="approach-en">Designing Sustainable Operations.</p>
+    </header>
 
-  <div id="alarm-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>IaC導入設計</h2>
-      <p>
-        アラームや社内Wikiの内容を整理してRAGを用いてAIに取り込みます
-      </p>
-    </div>
-  </div>
+    <div class="approach-scroll">
+      <div class="approach-track">
 
-  <div id="alarm-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>AWS構成最適化</h2>
-      <p>
-        主にAWSを用いたソリューションを提供します
-      </p>
-    </div>
-  </div>
+        <!-- active card -->
+        <article class="approach-card is-active" data-modal-target="modal-rag">
+            <h3 class="approach-card-title">RAG基盤設計</h3>
+            <p class="approach-card-text">
+            社内Wikiが活用されていない。<br>
+            アラーム対応が属人化している。
+            </p>
+            <p class="approach-card-foot">→ RAGで知識を構造化します</p>
 
+            <div class="approach-plus" aria-hidden="true"><span>＋</span></div>
+        </article>
+
+        <article class="approach-card" data-modal-target="modal-alarm">
+            <h3 class="approach-card-title">アラーム粒度再設計</h3>
+            <p class="approach-card-text">
+            誤検知・属人判断を減らし、<br>
+            静かな運用へ。
+            </p>
+
+            <div class="approach-plus" aria-hidden="true"><span>＋</span></div>
+        </article>
+
+        <article class="approach-card" data-modal-target="modal-IaC">
+            <h3 class="approach-card-title">IaC導入設計</h3>
+            <p class="approach-card-text">
+            構成をコード化し、<br>
+            再現性のある運用へ。<br>
+            </p>
+
+            <div class="approach-plus" aria-hidden="true"><span>＋</span></div>
+        </article>
+
+        <article class="approach-card" data-modal-target="modal-AWS">
+            <h3 class="approach-card-title">AWS構成最適化</h3>
+            <p class="approach-card-text">
+            コストと可用性の<br>
+            バランス設計。<br>
+            </p>
+
+            <div class="approach-plus" aria-hidden="true"><span>＋</span></div>
+        </article>
+
+      </div>
+    </div>
+    
+    <!-- 下の小さい矢印（飾り） -->
+    <div class="approach-nav">
+      <button class="scroll-left">◀</button>
+      <button class="scroll-right">▶</button>
+    </div>
+
+  </div>
 </section>

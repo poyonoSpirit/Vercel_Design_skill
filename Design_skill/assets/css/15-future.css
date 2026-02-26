@@ -1,0 +1,26 @@
+#future {
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* 背景レイヤー */
+#future::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../../sections/future/future-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.2;   /* ←ここで透明度調整ぽよん */
+  z-index: -1;
+}
